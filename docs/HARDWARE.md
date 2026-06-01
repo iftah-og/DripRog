@@ -20,8 +20,6 @@ Tested and working well:
 - **Samsung FIT Plus**
 - **SanDisk Ultra Fit**
 
-Both are compact, fast, and reliable for long recordings, and are formatted as
-**FAT32**.
 
 ## Microphones
 
