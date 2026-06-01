@@ -10,8 +10,8 @@ Accessibility is core to the design, not an afterthought. See
 
 DripRog is the hardware counterpart to **Field Spectrum**, an accessible
 spectral viewer and timeline for Ableton Live,  built for field recordists,
-with full screen reader and keyboard support. More at
-[Field Spectrum link here].
+with full screen reader and keyboard support. More 
+[[here](http://if-tah.com/devices/field-spectrum)].
 
 There are two ways to use it:
 
