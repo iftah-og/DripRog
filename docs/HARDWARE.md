@@ -9,12 +9,12 @@
 - One status indicator (see below)
 - 4-position rotary gain switch
 
-A recording needs ~2.1 GB free per segment, so size the USB drive for your session length (24 h at these settings is large — use a high-capacity drive).
+A recording needs ~2.1 GB free per segment, so size the USB drive for your session length. 24 h at these settings is large, so use a high-capacity drive.
 
 ### USB drive
 
-Recordings are written continuously, so drive quality matters — a slow or
-flaky drive can cause dropouts or stalls. Use a high-quality drive. Tested and
+Recordings are written continuously, so drive quality matters. A slow or flaky
+drive can cause dropouts or stalls. Use a high-quality drive. Tested and
 recommended:
 
 - **Samsung FIT Plus**
@@ -28,25 +28,25 @@ DripRog is designed around **electret capsules** fed by the ADC's plug-in
 power. The capsule choice is yours; these are the ones the project is built and
 tested around:
 
-- **Primo EM272** — low-self-noise omni, a long-standing favourite for quiet
+- **Primo EM272**: low-self-noise omni, a long-standing favourite for quiet
   nature and ambient field recording.
-- **Primo EM419N** — the successor to the EM258, with slightly higher max SPL
-  and SNR. Notably, it keeps a **useful ultrasonic response** (the EM258/EM419
-  line reaches well above 20 kHz, into the tens of kHz), which makes the EM419N
+- **Primo EM419N**: the successor to the EM258, with slightly higher max SPL
+  and SNR. It keeps a **useful ultrasonic response** (the EM258/EM419 line
+  reaches well above 20 kHz, into the tens of kHz), which makes the EM419N
   particularly handy for **ultrasound** work (bats, insects, high-frequency
   detail) at the recorder's 192 kHz sample rate.
-- **PUI Audio capsules** — modern WM-61A-style electrets that are cheap and
-  high quality; a good low-cost option.
+- **PUI Audio capsules**: modern WM-61A-style electrets that are cheap and high
+  quality; a good low-cost option.
 
-Any standard 2-terminal electret capsule will work — these are just known-good
+Any standard 2-terminal electret capsule will work; these are just known-good
 picks. For stereo, wire two capsules to the ADC's left and right inputs.
 
-### Plug-in power — jumper required
+### Plug-in power: jumper required
 
 Electret capsules need a DC bias ("plug-in power") to run. The HiFiBerry DAC+
-ADC Pro can supply this, but **it is not enabled by default — you must set the
+ADC Pro can supply this, but **it is not enabled by default. You must set the
 plug-in-power jumper on the board** for the ADC inputs you're using. Without the
-jumper the capsule gets no bias and you'll record only noise/silence.
+jumper the capsule gets no bias and you'll record only noise or silence.
 
 Set the jumper(s), then wire each capsule between the ADC input and ground per
 the HiFiBerry DAC+ ADC Pro documentation. Confirm the capsule is biased (a
@@ -60,67 +60,68 @@ All inputs are active-low with the internal pull-up enabled in software; wire ea
 | Function | GPIO (BCM) | Notes |
 |---|---|---|
 | Record button | 17 | Momentary, to GND |
-| Status indicator | 23 | LED / piezo / motor — see below |
+| Status indicator | 23 | LED / piezo / motor (see below) |
 | Gain select (24) | 12 | To GND |
 | Gain select (60) | 5 | To GND |
 | Gain select (80) | 6 | To GND |
-| Gain default (104) | — | No gain pin to GND |
+| Gain default (104) | none | No gain pin to GND |
 
-The "gain" values are the ADC capture level passed to the `ADC` mixer control (0–104, i.e. 0–40 dB).
+The "gain" values are the ADC capture level passed to the `ADC` mixer control (0 to 104, i.e. 0 to 40 dB).
 
 ## Status indicator on GPIO 23
 
-GPIO 23 is a simple on/off output. You can fit **one** of three indicators, and
-the firmware drives all of them identically (pin high = on) using the same
-patterns. This is the project's main accessibility feature: choose feedback by
-sight, sound, or touch — whichever suits you — without changing anything in
-software.
+Accessibility is a core part of DripRog's design, and this is where it lives.
+The device reports its state through a single indicator on GPIO 23, and that
+indicator can be **visual, audible, or tactile**. The firmware drives all three
+identically (pin high = on) using the same patterns, so the device behaves the
+same regardless of which you fit. None is the "default" or primary option; they
+are equal choices, and you pick the one (or combination) that matches how you
+need to perceive the device's state.
 
-- **LED** — visual.
-- **Active piezo buzzer** — audible.
-- **Coin vibration motor** — tactile / silent.
+- **LED**: visual.
+- **Active piezo buzzer**: audible.
+- **Coin vibration motor**: tactile, and silent to anyone nearby.
 
-All three respond to the same patterns (see [Indicator patterns](#indicator-patterns)),
-so the device behaves identically regardless of which you fit. Pick based on
-whether you want to see, hear, or feel the status.
+All three respond to the same patterns (see [Indicator patterns](#indicator-patterns)).
+Wiring for each is below.
 
-### Option A — LED (visual)
+### LED (visual)
 
-Most common. LED in series with a current-limiting resistor to GND.
+LED in series with a current-limiting resistor to GND.
 
-- **220–330 Ω** series resistor for a standard LED at 3.3 V.
+- **220 to 330 ohm** series resistor for a standard LED at 3.3 V.
 - Long leg (anode) toward GPIO 23, short leg (cathode) toward the resistor/GND.
 
-### Option B — Active piezo buzzer (audible, kept quiet)
+### Active piezo buzzer (audible, kept quiet)
 
-Use an **active** piezo (built-in oscillator — runs on DC, not a passive
-element). Driven straight from GPIO 23, an active piezo is loud, so add a
+Use an **active** piezo (built-in oscillator, runs on DC, not a passive
+element). Driven straight from GPIO 23 an active piezo is loud, so add a
 **series resistor to reduce the volume**:
 
-- Start around **4.7 kΩ** for a quiet chirp.
-- Increase toward **10 kΩ or more** to make it quieter still — higher resistance
-  = lower volume. Tune to taste.
-- Polarity matters: `+` toward GPIO 23, `–` toward the resistor/GND.
+- Start around **4.7 kohm** for a quiet chirp.
+- Increase toward **10 kohm or more** to make it quieter still. Higher
+  resistance means lower volume. Tune to taste.
+- Polarity matters: `+` toward GPIO 23, `-` toward the resistor/GND.
 
-This keeps the same blink patterns as the LED, just audible instead of visual.
+Same patterns as the other options, audible instead of visual.
 
-### Option C — Coin vibration motor (silent / tactile)
+### Coin vibration motor (silent / tactile)
 
-A coin (ERM) vibration motor gives feedback you can feel without light or sound
-— good for fully covert deployment.
+A coin (ERM) vibration motor gives feedback you can feel without light or
+sound, which also suits fully covert deployment.
 
 **Do not connect the motor directly to GPIO 23.** A coin motor draws roughly
-75–100 mA, far above the Pi's ~16 mA per-pin limit, and the inductive kickback
-can damage the pin. Use a small transistor driver:
+75 to 100 mA, far above the Pi's ~16 mA per-pin limit, and the inductive
+kickback can damage the pin. Use a small transistor driver:
 
 - **N-channel MOSFET** (e.g. 2N7000) or **NPN transistor** (e.g. BC337 / 2N2222)
   switching the motor's low side.
-- **~1 kΩ** resistor from GPIO 23 to the gate/base.
+- **~1 kohm** resistor from GPIO 23 to the gate/base.
 - **Flyback diode** (e.g. 1N4148 or 1N4001) across the motor terminals,
   cathode to the positive supply, to absorb the inductive spike.
 - Power the motor from the **3.3 V or 5 V rail**, not from GPIO 23.
 
-The motor then follows the same on/off patterns as the LED.
+The motor then follows the same on/off patterns as the other options.
 
 ## Indicator patterns
 
@@ -137,7 +138,7 @@ The motor then follows the same on/off patterns as the LED.
 ## Controls
 
 - **Short press** (< ~0.8 s): start recording.
-- **Long press** (≥ ~0.8 s) while recording: stop recording.
+- **Long press** (>= ~0.8 s) while recording: stop recording.
 - **Hold 5 s**: clean shutdown (safe to remove power afterward).
 
 ## Gain switch
@@ -152,31 +153,32 @@ gain, 4 = maximum):
 | 3 | 80 | GPIO 6 to GND |
 | 4 | 104 (max) | no pin to GND |
 
-The level is read at idle and locked in when a recording starts. Position 4
-(max) is the "nothing connected" state, so if the switch is unwired or
-disconnected the recorder defaults to maximum gain — it still runs, just always
-at 104.
+Only three pins are wired (12, 5, 6). Positions 1 to 3 each pull one pin to
+ground; position 4 connects nothing, which the firmware reads as level 104. The
+level is read at idle and locked in when a recording starts. Because position 4
+is the "nothing connected" state, an unwired or disconnected switch reads as
+maximum gain: the recorder still runs, just always at 104.
 
 ### A note on setting gain for unattended recording
 
 Setting a gain level ahead of an overnight or multi-day recording is inherently
-a guess — you don't know in advance how loud the environment will be, and you
-won't be there to adjust it. So in practice there isn't a "correct" gain to
-dial in for an unattended session.
+a guess. You don't know in advance how loud the environment will be, and you
+won't be there to adjust it, so there isn't really a "correct" gain to dial in
+for an unattended session.
 
 The switch is here anyway, because sometimes you do know something about the
-site (e.g. you're deploying somewhere reliably very loud). Unless you have a
-specific reason, **set the switch to position 3 (level 80)** as a sensible
-default, and only choose a lower position if you know you'll be in an unusually
-loud environment.
+site (for example you're deploying somewhere reliably very loud). Unless you
+have a specific reason, **set the switch to position 3 (level 80)** as a
+sensible default, and only choose a lower position if you know you'll be in an
+unusually loud environment.
 
 ## Power
 
 The Pi is powered over its micro-USB input, so any good USB power bank works.
-Use a **high-quality battery** — cheap packs can sag or cut out under the Pi's
+Use a **high-quality battery**; cheap packs can sag or cut out under the Pi's
 load and interrupt a recording. **Anker** packs are a known-good choice.
 
 As a rough guide, a **10 Ah** battery gives around **24 hours** of recording
 time on a Pi 3A+ with this setup. Scale capacity to the session length you
-need. Because the root filesystem is read-only, the battery simply dying mid-
-session is safe — you only lose the segment that was being written.
+need. Because the root filesystem is read-only, the battery simply dying
+mid-session is safe: you only lose the segment that was being written.
