@@ -5,16 +5,16 @@ Raspberry Pi with a HiFiBerry DAC+ ADC Pro. One button, one status indicator,
 records 192 kHz / 24-bit stereo WAV to a USB drive. Built to be dropped
 somewhere, left running on battery, and powered off whenever.
 
-Accessibility is a core design goal, not an afterthought, see
+Accessibility is core to the design, not an add-on. See
 [Accessibility](#accessibility) below.
 
 There are two ways to use it:
 
-- **Flash the ready-made image** — easiest, no setup. [Download link here].
-- **Use the scripts** (this repo) — run on an existing Raspberry Pi OS install,
-  or audit/modify what the device actually does.
+- **Flash the ready-made image**: easiest, no setup. [Download link here].
+- **Use the scripts** (this repo): run on an existing Raspberry Pi OS install,
+  or audit and modify what the device actually does.
 
-This repository is the open-source component behind the image: the image is
+This repository is the open-source component behind the image. The image is
 just a pre-built version of these scripts.
 
 ## What's here
@@ -59,23 +59,27 @@ Insert a FAT32 USB drive and the recorder is ready (indicator solid).
 Recordings are written to `/mnt/usb/recordings/droprig-NNN/`, one folder per
 power-on, split into ~23-minute WAV segments. The status indicator shows state
 (see [docs/HARDWARE.md](docs/HARDWARE.md) for the full pattern reference and
-wiring, including LED / piezo / vibration-motor options on the indicator pin).
+wiring, including the LED, piezo, and vibration-motor options on the indicator
+pin).
 
 ## Accessibility
 
-DripRog is designed to be operable without relying on any single sense.
+Accessibility is a core design goal of DripRog, not a feature bolted on. The
+device is built to be operable without relying on any single sense.
 
-- **One control.** Everything is done with a single button — short press, long
+- **One control.** Everything is done with a single button: short press, long
   press, and a 5-second hold. There is no screen, menu, or app to navigate.
-- **Choose how it talks back to you.** The status indicator on GPIO 23 can be a
+- **Choose how it reports state.** The status indicator on GPIO 23 can be a
   **visual LED**, an **audible active piezo buzzer**, or a **tactile coin
-  vibration motor**. All three use the same patterns (startup, ready,
-  recording, stopped, shutdown), so you can pick — or combine — the feedback
-  that works for you: sight, sound, or touch. Wiring for each is in
+  vibration motor**. None is the default or primary option; they are equal
+  choices. All three use the same patterns (startup, ready, recording, stopped,
+  shutdown), so you pick the one, or combination, that works for you: sight,
+  sound, or touch. Wiring for each is in
   [docs/HARDWARE.md](docs/HARDWARE.md#status-indicator-on-gpio-23).
 - **Consistent, learnable patterns.** State is conveyed by a small set of
-  distinct rhythms (e.g. solid = ready, fast blinks = shutting down) rather than
-  by colour or pitch alone, so they read the same whether felt, heard, or seen.
+  distinct rhythms (for example solid = ready, fast blinks = shutting down)
+  rather than by colour or pitch alone, so they read the same whether felt,
+  heard, or seen.
 
 If you build or adapt DripRog for a specific access need, contributions and
 suggestions are welcome.
@@ -90,22 +94,22 @@ suggestions are welcome.
 
 ## Hardware
 
-Raspberry Pi 3A+ + HiFiBerry DAC+ ADC Pro, button on GPIO 17, status indicator
-on GPIO 23, 4-position gain switch on GPIO 12 / 5 / 6. Full wiring and parts in
-[docs/HARDWARE.md](docs/HARDWARE.md).
+Raspberry Pi 3A+ with a HiFiBerry DAC+ ADC Pro, button on GPIO 17, status
+indicator on GPIO 23, 4-position gain switch on GPIO 12 / 5 / 6. Full wiring and
+parts in [docs/HARDWARE.md](docs/HARDWARE.md).
 
 ### Microphones
 
 DripRog uses **electret capsules** powered by the ADC's plug-in power. Good
 choices: **Primo EM272** (quiet omni), **Primo EM419N** (successor to the
-EM258, with useful ultrasonic response — great for bats/insects at 192 kHz),
+EM258, with useful ultrasonic response, great for bats and insects at 192 kHz),
 and **PUI Audio** capsules (cheap, high quality). Note the HiFiBerry DAC+ ADC
-Pro only supplies plug-in power when **jumpered for it** — set the jumper or you
+Pro only supplies plug-in power when **jumpered for it**; set the jumper or you
 get no signal. Details in [docs/HARDWARE.md](docs/HARDWARE.md#microphones).
 
 ### Storage and power
 
-Recordings go to a **FAT32 USB drive** — use a fast, reliable one (tested:
+Recordings go to a **FAT32 USB drive**; use a fast, reliable one (tested:
 **Samsung FIT Plus**, **SanDisk Ultra Fit**). Power is over micro-USB from any
 good battery pack; **Anker** packs are recommended, and roughly a **10 Ah**
 battery gives about **24 hours** of recording on a Pi 3A+. See
@@ -113,6 +117,6 @@ battery gives about **24 hours** of recording on a Pi 3A+. See
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE).
 
 Copyright (c) 2026 Iftah Gabbai
