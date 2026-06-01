@@ -104,14 +104,15 @@ DripRog uses **electret capsules** powered by the ADC's plug-in power. Good
 choices: **Primo EM272** (quiet omni), **Primo EM419N** (successor to the
 EM258, with useful ultrasonic response, great for bats and insects at 192 kHz),
 and **PUI Audio** capsules (cheap, high quality). Note the HiFiBerry DAC+ ADC
-Pro only supplies plug-in power when **jumpered for it**; set the jumper or you
-get no signal. Details in [docs/HARDWARE.md](docs/HARDWARE.md#microphones).
+Pro only supplies plug-in power when **jumpered for it**, so the jumper needs
+to be set or there's no signal. Details in
+[docs/HARDWARE.md](docs/HARDWARE.md#microphones).
 
 ### Storage and power
 
-Recordings go to a **FAT32 USB drive**; use a fast, reliable one (tested:
-**Samsung FIT Plus**, **SanDisk Ultra Fit**). Power is over micro-USB from any
-good battery pack; **Anker** packs are recommended, and roughly a **10 Ah**
+Recordings go to a **FAT32 USB drive**; a fast, reliable one is recommended
+(tested: **Samsung FIT Plus**, **SanDisk Ultra Fit**). Power is over micro-USB
+from any good battery pack; **Anker** packs work well, and roughly a **10 Ah**
 battery gives about **24 hours** of recording on a Pi 3A+. See
 [docs/HARDWARE.md](docs/HARDWARE.md#power) for more.
 
