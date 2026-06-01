@@ -1,4 +1,4 @@
-# Auto-mount/unmount USB storage partitions for the field recorder.
+# Auto-mount/unmount USB storage partitions for DripRog.
 # On insert: start usb-mount@sdX1; on removal: stop it.
 ACTION=="add", KERNEL=="sd[a-z][0-9]", SUBSYSTEM=="block", RUN+="/bin/systemctl start usb-mount@%k.service"
 ACTION=="remove", KERNEL=="sd[a-z][0-9]", SUBSYSTEM=="block", RUN+="/bin/systemctl stop usb-mount@%k.service"
