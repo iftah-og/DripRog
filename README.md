@@ -14,12 +14,12 @@ There are two ways to use it:
 - **Use the scripts** (this repo): run on an existing Raspberry Pi OS install,
   or audit and modify what the device actually does.
 
-This repository is the open-source component behind the image. The image is a
-custom, ultra-light Buildroot OS built around these scripts: it carries only
-what the recorder needs, boots and is ready to record in roughly 5 seconds, and
+This repository holds the open-source code behind the image. The image is a
+custom, very small Buildroot OS built around these scripts: it includes only
+what the recorder needs, boots and is ready to record in about 5 seconds, and
 runs from a read-only root filesystem. The scripts here are exactly what runs on
-it, so the repo is both the buildable source and a way to run DripRog on an
-existing Raspberry Pi OS install.
+it, so the repo is both the source and a way to run DripRog on an existing
+Raspberry Pi OS install.
 
 ## What's here
 
