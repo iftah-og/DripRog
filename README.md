@@ -5,7 +5,7 @@ Raspberry Pi with a HiFiBerry DAC+ ADC Pro. One button, one status indicator,
 records 192 kHz / 24-bit stereo WAV to a USB drive. Built to be dropped
 somewhere, left running on battery, and powered off whenever.
 
-Accessibility is core to the design, not an add-on. See
+Accessibility is core to the design, not an afterthought. See
 [Accessibility](#accessibility) below.
 
 There are two ways to use it:
