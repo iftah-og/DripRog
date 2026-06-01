@@ -20,8 +20,8 @@ Tested and working well:
 - **Samsung FIT Plus**
 - **SanDisk Ultra Fit**
 
-Both are compact, fast, and reliable for sustained writing, and are formatted
-as **FAT32**.
+Both are compact, fast, and reliable for long recordings, and are formatted as
+**FAT32**.
 
 ## Microphones
 
@@ -52,7 +52,7 @@ the jumper the capsule gets no bias, and the result is only noise or silence.
 With the jumper(s) set, each capsule connects between the ADC input and ground
 per the HiFiBerry DAC+ ADC Pro documentation. It's worth confirming the capsule
 is biased (a quick test recording should show real signal, not just noise
-floor) before deploying.
+floor) before using it for real.
 
 ## GPIO connections
 
@@ -109,7 +109,7 @@ Same patterns as the other options, audible instead of visual.
 ### Coin vibration motor (silent / tactile)
 
 A coin (ERM) vibration motor gives feedback you can feel without light or
-sound, which also suits fully covert deployment.
+sound, which also works well when the recorder needs to stay hidden.
 
 **Do not connect the motor directly to GPIO 23.** A coin motor draws roughly
 75 to 100 mA, far above the Pi's ~16 mA per-pin limit, and the inductive
@@ -196,34 +196,33 @@ maximum gain: the recorder still runs, just always at 104.
 
 ### Why a switch and not a continuous dial
 
-The recorder reads the gain position at idle and locks it in the moment
-recording starts, so gain never changes mid-recording in software regardless of
-the switch. The switch's job is therefore about the setting *before* recording
-begins. DripRog is built to be set once, sealed into a dry pack, and dropped in
-the field, and it's easy to stow it without double-checking the gain position. A
-detented rotary switch clicks into place and stays there, so the level you last
-set is still the level when you press record, even after the unit has been
-handled, jostled, or carried in a bag. A continuous potentiometer would be
-easier to nudge off its setting in transit.
+The recorder reads the gain position when idle and locks it the moment
+recording starts, so the gain never changes during a recording, whatever the
+switch does. The switch matters for the setting *before* you press record.
+DripRog is made to be set once, closed into a dry pack, and left in the field,
+and it's easy to pack it away without checking the gain again. A rotary switch
+clicks into each position and stays there, so the level you set is still the
+level when you press record, even after the unit has been moved around or
+carried in a bag. A turn dial would be much easier to knock to a different
+setting on the way.
 
-The trade-off is granularity: four fixed levels instead of a smooth range. For
-this use that's a feature, not a limit, since the goal is a known, repeatable
-setting rather than fine adjustment. If continuous or different gain handling is
-ever wanted, it can be adapted in the recorder script (the gain reading lives in
-one small function).
+The cost is fewer choices: four fixed levels instead of a smooth range. For this
+use that helps rather than hurts, because the point is a clear, repeatable
+setting, not fine adjustment. If you want a smooth dial or different gain
+behaviour, it can be changed in the recorder script (the gain reading is in one
+small function).
 
 ### A note on setting gain for unattended recording
 
-Setting a gain level ahead of an overnight or multi-day recording is inherently
-a guess. You don't know in advance how loud the environment will be, and you
-won't be there to adjust it, so there isn't really a "correct" gain to dial in
-for an unattended session.
+Setting a gain level before an overnight or multi-day recording is always a bit
+of a guess. You don't know ahead of time how loud the place will be, and you
+won't be there to change it, so there isn't really a "right" gain to pick for a
+recording you leave running.
 
 The switch is here anyway, because sometimes you do know something about the
-site (for example you're deploying somewhere reliably very loud). Unless you
-have a specific reason, **position 3 (level 80)** is a sensible default, with a
-lower position making sense only if you know you'll be in an unusually loud
-environment.
+spot (for example you know it will be very loud). Unless you have a reason to do
+otherwise, **position 3 (level 80)** is a good default, and a lower position
+only makes sense if you know the place will be unusually loud.
 
 ## Power
 
