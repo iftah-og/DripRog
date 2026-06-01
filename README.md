@@ -8,6 +8,12 @@ somewhere, left running on battery, and powered off whenever.
 Accessibility is core to the design, not an afterthought. See
 [Accessibility](#accessibility) below.
 
+DripRog is the hardware counterpart to **Field Spectrum**, an accessible
+spectral viewer and timeline for Ableton Live, also built for field recordists.
+DripRog captures the audio in the field; Field Spectrum analyses and navigates
+it back at the desk, with full screen reader and keyboard support. More at
+[Field Spectrum link here].
+
 There are two ways to use it:
 
 - **Flash the ready-made image**: easiest, no setup. [Download link here].
