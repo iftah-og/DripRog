@@ -9,18 +9,19 @@
 - One status indicator (see below)
 - 4-position rotary gain switch
 
-A recording needs ~2.1 GB free per segment, so size the USB drive for your session length. 24 h at these settings is large, so use a high-capacity drive.
+A recording needs ~2.1 GB free per segment, so the USB drive should be sized for your session length. 24 h at these settings is large, so a high-capacity drive is recommended.
 
 ### USB drive
 
 Recordings are written continuously, so drive quality matters. A slow or flaky
-drive can cause dropouts or stalls. Use a high-quality drive. Tested and
-recommended:
+drive can cause dropouts or stalls, so a high-quality drive is recommended.
+Tested and working well:
 
 - **Samsung FIT Plus**
 - **SanDisk Ultra Fit**
 
-Both are compact, fast, and reliable for sustained writing. Format as **FAT32**.
+Both are compact, fast, and reliable for sustained writing, and are formatted
+as **FAT32**.
 
 ## Microphones
 
@@ -39,19 +40,19 @@ tested around:
   quality; a good low-cost option.
 
 Any standard 2-terminal electret capsule will work; these are just known-good
-picks. For stereo, wire two capsules to the ADC's left and right inputs.
+picks. For stereo, two capsules go to the ADC's left and right inputs.
 
 ### Plug-in power: jumper required
 
 Electret capsules need a DC bias ("plug-in power") to run. The HiFiBerry DAC+
-ADC Pro can supply this, but **it is not enabled by default. You must set the
-plug-in-power jumper on the board** for the ADC inputs you're using. Without the
-jumper the capsule gets no bias and you'll record only noise or silence.
+ADC Pro can supply this, but **it is not enabled by default: the plug-in-power
+jumper on the board needs to be set** for the ADC inputs you're using. Without
+the jumper the capsule gets no bias, and the result is only noise or silence.
 
-Set the jumper(s), then wire each capsule between the ADC input and ground per
-the HiFiBerry DAC+ ADC Pro documentation. Confirm the capsule is biased (a
-quick test recording should show real signal, not just noise floor) before
-deploying.
+With the jumper(s) set, each capsule connects between the ADC input and ground
+per the HiFiBerry DAC+ ADC Pro documentation. It's worth confirming the capsule
+is biased (a quick test recording should show real signal, not just noise
+floor) before deploying.
 
 ## GPIO connections
 
@@ -94,13 +95,13 @@ LED in series with a current-limiting resistor to GND.
 
 ### Active piezo buzzer (audible, kept quiet)
 
-Use an **active** piezo (built-in oscillator, runs on DC, not a passive
-element). Driven straight from GPIO 23 an active piezo is loud, so add a
-**series resistor to reduce the volume**:
+This option uses an **active** piezo (built-in oscillator, runs on DC, not a
+passive element). Driven straight from GPIO 23 an active piezo is loud, so a
+**series resistor to reduce the volume** is recommended:
 
-- Start around **4.7 kohm** for a quiet chirp.
-- Increase toward **10 kohm or more** to make it quieter still. Higher
-  resistance means lower volume. Tune to taste.
+- Around **4.7 kohm** gives a quiet chirp.
+- **10 kohm or more** makes it quieter still. Higher resistance means lower
+  volume, so it can be tuned to taste.
 - Polarity matters: `+` toward GPIO 23, `-` toward the resistor/GND.
 
 Same patterns as the other options, audible instead of visual.
@@ -112,7 +113,7 @@ sound, which also suits fully covert deployment.
 
 **Do not connect the motor directly to GPIO 23.** A coin motor draws roughly
 75 to 100 mA, far above the Pi's ~16 mA per-pin limit, and the inductive
-kickback can damage the pin. Use a small transistor driver:
+kickback can damage the pin, so a small transistor driver is used instead:
 
 - **N-channel MOSFET** (e.g. 2N7000) or **NPN transistor** (e.g. BC337 / 2N2222)
   switching the motor's low side.
@@ -187,17 +188,18 @@ for an unattended session.
 
 The switch is here anyway, because sometimes you do know something about the
 site (for example you're deploying somewhere reliably very loud). Unless you
-have a specific reason, **set the switch to position 3 (level 80)** as a
-sensible default, and only choose a lower position if you know you'll be in an
-unusually loud environment.
+have a specific reason, **position 3 (level 80)** is a sensible default, with a
+lower position making sense only if you know you'll be in an unusually loud
+environment.
 
 ## Power
 
 The Pi is powered over its micro-USB input, so any good USB power bank works.
-Use a **high-quality battery**; cheap packs can sag or cut out under the Pi's
-load and interrupt a recording. **Anker** packs are a known-good choice.
+A **high-quality battery** is recommended; cheap packs can sag or cut out under
+the Pi's load and interrupt a recording. **Anker** packs are a known-good
+choice.
 
 As a rough guide, a **10 Ah** battery gives around **24 hours** of recording
-time on a Pi 3A+ with this setup. Scale capacity to the session length you
-need. Because the root filesystem is read-only, the battery simply dying
-mid-session is safe: you only lose the segment that was being written.
+time on a Pi 3A+ with this setup, and capacity scales with the session length
+you need. Because the root filesystem is read-only, the battery simply dying
+mid-session is safe: only the segment that was being written is lost.
