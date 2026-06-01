@@ -91,7 +91,7 @@ suggestions are welcome.
 ## Hardware
 
 Raspberry Pi 3A+ + HiFiBerry DAC+ ADC Pro, button on GPIO 17, status indicator
-on GPIO 23, optional gain switch on GPIO 12 / 5 / 6. Full wiring and parts in
+on GPIO 23, 4-position gain switch on GPIO 12 / 5 / 6. Full wiring and parts in
 [docs/HARDWARE.md](docs/HARDWARE.md).
 
 ### Microphones

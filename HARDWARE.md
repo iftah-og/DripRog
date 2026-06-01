@@ -7,7 +7,7 @@
 - **USB drive**, formatted **FAT32**, mounted at `/mnt/usb` (recordings go to `/mnt/usb/recordings`)
 - Momentary push button
 - One status indicator (see below)
-- Optional 4-position rotary gain switch
+- 4-position rotary gain switch
 
 A recording needs ~2.1 GB free per segment, so size the USB drive for your session length (24 h at these settings is large — use a high-capacity drive).
 
@@ -140,11 +140,35 @@ The motor then follows the same on/off patterns as the LED.
 - **Long press** (≥ ~0.8 s) while recording: stop recording.
 - **Hold 5 s**: clean shutdown (safe to remove power afterward).
 
-## Gain switch (optional)
+## Gain switch
 
-A 4-position rotary switch connecting one of GPIO 12 / 5 / 6 to GND selects ADC
-level 24 / 60 / 80; with none connected the level is 104 (max). The level is
-read at idle and locked in when a recording starts.
+A 4-position rotary switch sets the ADC capture level. By position (1 = lowest
+gain, 4 = maximum):
+
+| Position | ADC level | Wiring |
+|---|---|---|
+| 1 | 24 | GPIO 12 to GND |
+| 2 | 60 | GPIO 5 to GND |
+| 3 | 80 | GPIO 6 to GND |
+| 4 | 104 (max) | no pin to GND |
+
+The level is read at idle and locked in when a recording starts. Position 4
+(max) is the "nothing connected" state, so if the switch is unwired or
+disconnected the recorder defaults to maximum gain — it still runs, just always
+at 104.
+
+### A note on setting gain for unattended recording
+
+Setting a gain level ahead of an overnight or multi-day recording is inherently
+a guess — you don't know in advance how loud the environment will be, and you
+won't be there to adjust it. So in practice there isn't a "correct" gain to
+dial in for an unattended session.
+
+The switch is here anyway, because sometimes you do know something about the
+site (e.g. you're deploying somewhere reliably very loud). Unless you have a
+specific reason, **set the switch to position 3 (level 80)** as a sensible
+default, and only choose a lower position if you know you'll be in an unusually
+loud environment.
 
 ## Power
 
