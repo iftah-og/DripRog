@@ -11,6 +11,48 @@
 
 A recording needs ~2.1 GB free per segment, so size the USB drive for your session length (24 h at these settings is large — use a high-capacity drive).
 
+### USB drive
+
+Recordings are written continuously, so drive quality matters — a slow or
+flaky drive can cause dropouts or stalls. Use a high-quality drive. Tested and
+recommended:
+
+- **Samsung FIT Plus**
+- **SanDisk Ultra Fit**
+
+Both are compact, fast, and reliable for sustained writing. Format as **FAT32**.
+
+## Microphones
+
+DripRog is designed around **electret capsules** fed by the ADC's plug-in
+power. The capsule choice is yours; these are the ones the project is built and
+tested around:
+
+- **Primo EM272** — low-self-noise omni, a long-standing favourite for quiet
+  nature and ambient field recording.
+- **Primo EM419N** — the successor to the EM258, with slightly higher max SPL
+  and SNR. Notably, it keeps a **useful ultrasonic response** (the EM258/EM419
+  line reaches well above 20 kHz, into the tens of kHz), which makes the EM419N
+  particularly handy for **ultrasound** work (bats, insects, high-frequency
+  detail) at the recorder's 192 kHz sample rate.
+- **PUI Audio capsules** — modern WM-61A-style electrets that are cheap and
+  high quality; a good low-cost option.
+
+Any standard 2-terminal electret capsule will work — these are just known-good
+picks. For stereo, wire two capsules to the ADC's left and right inputs.
+
+### Plug-in power — jumper required
+
+Electret capsules need a DC bias ("plug-in power") to run. The HiFiBerry DAC+
+ADC Pro can supply this, but **it is not enabled by default — you must set the
+plug-in-power jumper on the board** for the ADC inputs you're using. Without the
+jumper the capsule gets no bias and you'll record only noise/silence.
+
+Set the jumper(s), then wire each capsule between the ADC input and ground per
+the HiFiBerry DAC+ ADC Pro documentation. Confirm the capsule is biased (a
+quick test recording should show real signal, not just noise floor) before
+deploying.
+
 ## GPIO connections
 
 All inputs are active-low with the internal pull-up enabled in software; wire each one to **GND** through the button/switch.
@@ -103,3 +145,14 @@ The motor then follows the same on/off patterns as the LED.
 A 4-position rotary switch connecting one of GPIO 12 / 5 / 6 to GND selects ADC
 level 24 / 60 / 80; with none connected the level is 104 (max). The level is
 read at idle and locked in when a recording starts.
+
+## Power
+
+The Pi is powered over its micro-USB input, so any good USB power bank works.
+Use a **high-quality battery** — cheap packs can sag or cut out under the Pi's
+load and interrupt a recording. **Anker** packs are a known-good choice.
+
+As a rough guide, a **10 Ah** battery gives around **24 hours** of recording
+time on a Pi 3A+ with this setup. Scale capacity to the session length you
+need. Because the root filesystem is read-only, the battery simply dying mid-
+session is safe — you only lose the segment that was being written.
