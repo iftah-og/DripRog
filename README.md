@@ -14,8 +14,12 @@ There are two ways to use it:
 - **Use the scripts** (this repo): run on an existing Raspberry Pi OS install,
   or audit and modify what the device actually does.
 
-This repository is the open-source component behind the image. The image is
-just a pre-built version of these scripts.
+This repository is the open-source component behind the image. The image is a
+custom, ultra-light Buildroot OS built around these scripts: it carries only
+what the recorder needs, boots and is ready to record in roughly 5 seconds, and
+runs from a read-only root filesystem. The scripts here are exactly what runs on
+it, so the repo is both the buildable source and a way to run DripRog on an
+existing Raspberry Pi OS install.
 
 ## What's here
 
@@ -64,8 +68,8 @@ pin).
 
 ## Accessibility
 
-Accessibility is a core design goal of DripRog, not a feature bolted on. The
-device is built to be operable without relying on any single sense.
+Accessibility is core to the design of DripRog, not an afterthought. The device
+is built to be operable without relying on any single sense.
 
 - **One control.** Everything is done with a single button: short press, long
   press, and a 5-second hold. There is no screen, menu, or app to navigate.
