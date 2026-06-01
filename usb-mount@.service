@@ -1,0 +1,9 @@
+[Unit]
+Description=Mount USB Drive %I for Field Recorder
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/mkdir -p /mnt/usb
+ExecStart=/bin/mount /dev/%i /mnt/usb
+ExecStop=/bin/umount /mnt/usb

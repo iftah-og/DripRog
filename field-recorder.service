@@ -1,0 +1,13 @@
+[Unit]
+Description=Field Audio Recorder
+After=sound.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/local/bin/field_recorder.sh
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
