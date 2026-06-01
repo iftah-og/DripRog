@@ -196,12 +196,15 @@ maximum gain: the recorder still runs, just always at 104.
 
 ### Why a switch and not a continuous dial
 
-DripRog is built to be set once and then left completely alone: configured,
-sealed into a dry pack, and dropped in the field for the duration of a session,
-with no changes made while it's recording. A detented rotary switch suits that.
-Its positions physically click into place, so a setting can't drift or get
-knocked to a different value by handling, vibration, or being jostled in a bag.
-A continuous potentiometer would be easier to nudge by accident.
+The recorder reads the gain position at idle and locks it in the moment
+recording starts, so gain never changes mid-recording in software regardless of
+the switch. The switch's job is therefore about the setting *before* recording
+begins. DripRog is built to be set once, sealed into a dry pack, and dropped in
+the field, and it's easy to stow it without double-checking the gain position. A
+detented rotary switch clicks into place and stays there, so the level you last
+set is still the level when you press record, even after the unit has been
+handled, jostled, or carried in a bag. A continuous potentiometer would be
+easier to nudge off its setting in transit.
 
 The trade-off is granularity: four fixed levels instead of a smooth range. For
 this use that's a feature, not a limit, since the goal is a known, repeatable
