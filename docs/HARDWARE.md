@@ -171,7 +171,7 @@ pattern is the same for all three. "Pulse" below means one on-then-off cycle.
 | 2 pulses, pause, repeat | Waiting for USB / not enough space |
 | 5 pulses then off | Recording started (off = recording) |
 | On after a 1 s hold while recording | Stop is being confirmed |
-| 8 fast pulses then solid | Recording stopped and synced |
+| 8 fast pulses then solid | Recording stopped, safe to remove the USB drive |
 | 10 fast pulses | Shutting down |
 
 ## Controls
