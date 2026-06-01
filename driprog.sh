@@ -73,7 +73,7 @@ set_adc_level() {
     amixer -c 0 sset 'ADC' "$1" 2>/dev/null
 }
 
-# --- Status indicator and blink patterns ---
+# --- Status indicator and pulse patterns ---
 led_on()  { _gpio_hold $LED_PIN 1; }
 led_off() { _gpio_hold $LED_PIN 0; }
 
