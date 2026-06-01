@@ -123,6 +123,25 @@ kickback can damage the pin. Use a small transistor driver:
 
 The motor then follows the same on/off patterns as the other options.
 
+#### Step-by-step wiring (2N7000 MOSFET)
+
+If the description above isn't familiar, follow these in order. Hold the 2N7000
+with its flat side facing you and the legs pointing down. The legs are, left to
+right: **source**, **gate**, **drain**.
+
+1. Connect **GPIO 23** to one end of the **1 kohm resistor**.
+2. Connect the **other end of the resistor** to the **middle leg (gate)**.
+3. Connect the **left leg (source)** to a **GND** pin on the Pi.
+4. Connect the **right leg (drain)** to the **motor's "-" wire**.
+5. Connect the **motor's "+" wire** to a **5V** pin on the Pi.
+6. Connect the **diode across the two motor wires**: the end with the painted
+   **band goes to the "+" wire**, the other end to the "-" wire.
+
+That's it. When the recorder turns the indicator on, GPIO 23 switches the
+MOSFET and the motor runs; the diode protects everything when it switches off.
+A BC337 NPN transistor wires the same way (its legs are usually collector,
+base, emitter: resistor to base, emitter to GND, collector to the motor "-").
+
 ## Indicator patterns
 
 | Pattern | Meaning |
