@@ -28,9 +28,19 @@ The "gain" values are the ADC capture level passed to the `ADC` mixer control (0
 
 ## Status indicator on GPIO 23
 
-GPIO 23 is a simple on/off output. You can fit **one** of three indicators; the
-firmware drives all of them identically (pin high = on). Pick based on whether
-you want visual, audible, or silent/tactile feedback.
+GPIO 23 is a simple on/off output. You can fit **one** of three indicators, and
+the firmware drives all of them identically (pin high = on) using the same
+patterns. This is the project's main accessibility feature: choose feedback by
+sight, sound, or touch — whichever suits you — without changing anything in
+software.
+
+- **LED** — visual.
+- **Active piezo buzzer** — audible.
+- **Coin vibration motor** — tactile / silent.
+
+All three respond to the same patterns (see [Indicator patterns](#indicator-patterns)),
+so the device behaves identically regardless of which you fit. Pick based on
+whether you want to see, hear, or feel the status.
 
 ### Option A — LED (visual)
 

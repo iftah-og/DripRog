@@ -1,9 +1,12 @@
 # DripRog
 
-DripRog is a minimal, unattended field audio recorder for the Raspberry Pi
-with a HiFiBerry DAC+ ADC Pro. One button, one status indicator, records 192 kHz /
-24-bit stereo WAV to a USB drive. Built to be dropped somewhere, left running
-on battery, and powered off whenever.
+DripRog is a minimal, accessible, unattended field audio recorder for the
+Raspberry Pi with a HiFiBerry DAC+ ADC Pro. One button, one status indicator,
+records 192 kHz / 24-bit stereo WAV to a USB drive. Built to be dropped
+somewhere, left running on battery, and powered off whenever.
+
+Accessibility is a core design goal, not an afterthought — see
+[Accessibility](#accessibility) below.
 
 There are two ways to use it:
 
@@ -57,6 +60,25 @@ Recordings are written to `/mnt/usb/recordings/droprig-NNN/`, one folder per
 power-on, split into ~23-minute WAV segments. The status indicator shows state
 (see [docs/HARDWARE.md](docs/HARDWARE.md) for the full pattern reference and
 wiring, including LED / piezo / vibration-motor options on the indicator pin).
+
+## Accessibility
+
+DripRog is designed to be operable without relying on any single sense.
+
+- **One control.** Everything is done with a single button — short press, long
+  press, and a 5-second hold. There is no screen, menu, or app to navigate.
+- **Choose how it talks back to you.** The status indicator on GPIO 23 can be a
+  **visual LED**, an **audible active piezo buzzer**, or a **tactile coin
+  vibration motor**. All three use the same patterns (startup, ready,
+  recording, stopped, shutdown), so you can pick — or combine — the feedback
+  that works for you: sight, sound, or touch. Wiring for each is in
+  [docs/HARDWARE.md](docs/HARDWARE.md#status-indicator-on-gpio-23).
+- **Consistent, learnable patterns.** State is conveyed by a small set of
+  distinct rhythms (e.g. solid = ready, fast blinks = shutting down) rather than
+  by colour or pitch alone, so they read the same whether felt, heard, or seen.
+
+If you build or adapt DripRog for a specific access need, contributions and
+suggestions are welcome.
 
 ## Notes
 
