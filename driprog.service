@@ -1,0 +1,13 @@
+[Unit]
+Description=DripRog field audio recorder
+After=sound.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/local/bin/driprog.sh
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

@@ -24,8 +24,8 @@ Raspberry Pi OS install.
 ## What's here
 
 ```
-field_recorder.sh                 the recorder
-systemd/field-recorder.service    starts it at boot
+driprog.sh                        the recorder
+systemd/driprog.service           starts it at boot
 systemd/usb-mount@.service        mounts the USB drive on insert
 udev/99-usb-automount.rules       triggers the mount on hotplug
 docs/HARDWARE.md                  wiring, GPIO pinout, indicator options
@@ -43,13 +43,13 @@ Requirements on the target: `bash`, `alsa-utils` (`arecord`, `amixer`),
 Install:
 
 ```sh
-sudo install -m 755 field_recorder.sh /usr/local/bin/field_recorder.sh
-sudo install -m 644 systemd/field-recorder.service /etc/systemd/system/
+sudo install -m 755 driprog.sh /usr/local/bin/driprog.sh
+sudo install -m 644 systemd/driprog.service /etc/systemd/system/
 sudo install -m 644 systemd/usb-mount@.service /etc/systemd/system/
 sudo install -m 644 udev/99-usb-automount.rules /etc/udev/rules.d/
 sudo udevadm control --reload
 sudo systemctl daemon-reload
-sudo systemctl enable --now field-recorder.service
+sudo systemctl enable --now driprog.service
 ```
 
 Insert a FAT32 USB drive and the recorder is ready (indicator solid).
