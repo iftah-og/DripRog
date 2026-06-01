@@ -105,7 +105,7 @@ parts in [docs/HARDWARE.md](docs/HARDWARE.md).
 ### Microphones
 
 DripRog uses **electret capsules** powered by the ADC's plug-in power. Good
-choices: **Primo EM272** (quiet omni), **Primo EM419N** (successor to the
+choices: **Primo EM272** (super quiet, great sounding omni), **Primo EM419N** (successor to the
 EM258, with useful ultrasonic response, great for bats and insects at 192 kHz),
 and **PUI Audio** capsules (cheap, high quality). Note the HiFiBerry DAC+ ADC
 Pro only supplies plug-in power when **jumpered for it**, so the jumper needs
