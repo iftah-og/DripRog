@@ -194,6 +194,21 @@ level is read at idle and locked in when a recording starts. Because position 4
 is the "nothing connected" state, an unwired or disconnected switch reads as
 maximum gain: the recorder still runs, just always at 104.
 
+### Why a switch and not a continuous dial
+
+DripRog is built to be set once and then left completely alone: configured,
+sealed into a dry pack, and dropped in the field for the duration of a session,
+with no changes made while it's recording. A detented rotary switch suits that.
+Its positions physically click into place, so a setting can't drift or get
+knocked to a different value by handling, vibration, or being jostled in a bag.
+A continuous potentiometer would be easier to nudge by accident.
+
+The trade-off is granularity: four fixed levels instead of a smooth range. For
+this use that's a feature, not a limit, since the goal is a known, repeatable
+setting rather than fine adjustment. If continuous or different gain handling is
+ever wanted, it can be adapted in the recorder script (the gain reading lives in
+one small function).
+
 ### A note on setting gain for unattended recording
 
 Setting a gain level ahead of an overnight or multi-day recording is inherently
