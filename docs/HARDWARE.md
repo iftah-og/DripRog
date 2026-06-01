@@ -20,6 +20,8 @@ Tested and working well:
 - **Samsung FIT Plus**
 - **SanDisk Ultra Fit**
 
+Both are compact, fast, and reliable for long recordings, and are formatted as
+**FAT32**.
 
 ## Microphones
 
@@ -97,7 +99,7 @@ This option uses an **active** piezo (built-in oscillator, runs on DC, not a
 passive element). Driven straight from GPIO 23 an active piezo is loud, so a
 **series resistor to reduce the volume** is recommended:
 
-- Around **4.7 kohm** gives a quiet chirp.
+- Around **4.7 kohm** gives a quiet tone.
 - **10 kohm or more** makes it quieter still. Higher resistance means lower
   volume, so it can be tuned to taste.
 - Polarity matters: `+` toward GPIO 23, `-` toward the resistor/GND.
@@ -158,15 +160,19 @@ part's datasheet if it isn't a standard BC337 or 2N7000.
 
 ## Indicator patterns
 
+The indicator signals state by turning on and off in counts. With an LED these
+are blinks, with a buzzer they are tones, and with a motor they are buzzes; the
+pattern is the same for all three. "Pulse" below means one on-then-off cycle.
+
 | Pattern | Meaning |
 |---|---|
-| One blink at startup | Power-on self-test |
+| One pulse at startup | Power-on self-test |
 | Solid on | Ready (USB mounted, space available) |
-| 2 blinks, pause, repeat | Waiting for USB / not enough space |
-| 5 blinks then off | Recording started (off = recording) |
+| 2 pulses, pause, repeat | Waiting for USB / not enough space |
+| 5 pulses then off | Recording started (off = recording) |
 | On after a 1 s hold while recording | Stop is being confirmed |
-| 8 fast blinks then solid | Recording stopped and synced |
-| 10 fast blinks | Shutting down |
+| 8 fast pulses then solid | Recording stopped and synced |
+| 10 fast pulses | Shutting down |
 
 ## Controls
 
