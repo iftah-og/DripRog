@@ -231,7 +231,7 @@ A **high-quality battery** is recommended; cheap packs can sag or cut out under
 the Pi's load and interrupt a recording. **Anker** packs are a known-good
 choice.
 
-As a rough guide, a **10 Ah** battery gives around **24 hours** of recording
+As a rough guide, a **10 Ah** battery gives around **22 hours** of recording
 time on a Pi 3A+ with this setup, and capacity scales with the session length
 you need. Because the root filesystem is read-only, the battery simply dying
 mid-session is safe: only the segment that was being written is lost.
