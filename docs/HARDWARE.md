@@ -29,13 +29,11 @@ DripRog is designed around **electret capsules** fed by the ADC's plug-in
 power. These are the ones the project is built and
 tested around:
 
-- **Primo EM272**: low-self-noise omni, a long-standing favourite for quiet
-  nature and ambient field recording.
+- **Primo EM272**: Great sounding low-self-noise omni.
 - **Primo EM419N**: the successor to the EM258, with slightly higher max SPL
-  and SNR. It keeps a **useful ultrasonic response** (the EM258/EM419 line
+  and SNR. It keeps a **very useful ultrasonic response** (the EM258/EM419 line
   reaches well above 20 kHz, into the tens of kHz), which makes the EM419N
-  particularly handy for **ultrasound** work (bats, insects, high-frequency
-  detail) at the recorder's 192 kHz sample rate.
+  particularly handy for **ultrasound** work.
 - **PUI Audio capsules**: modern WM-61A-style electrets that are cheap and high
   quality; a good low-cost option.
 
