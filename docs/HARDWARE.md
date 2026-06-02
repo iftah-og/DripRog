@@ -26,7 +26,7 @@ Both are compact, fast, and reliable for long recordings, and are formatted as
 ## Microphones
 
 DripRog is designed around **electret capsules** fed by the ADC's plug-in
-power. The capsule choice is yours; these are the ones the project is built and
+power. These are the ones the project is built and
 tested around:
 
 - **Primo EM272**: low-self-noise omni, a long-standing favourite for quiet
