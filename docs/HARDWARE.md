@@ -50,9 +50,7 @@ jumper on the board needs to be set** for the ADC inputs you're using. Without
 the jumper the capsule gets no bias, and the result is only noise or silence.
 
 With the jumper(s) set, each capsule connects between the ADC input and ground
-per the HiFiBerry DAC+ ADC Pro documentation. It's worth confirming the capsule
-is biased (a quick test recording should show real signal, not just noise
-floor) before using it for real.
+per the HiFiBerry DAC+ ADC Pro documentation. 
 
 ## GPIO connections
 
