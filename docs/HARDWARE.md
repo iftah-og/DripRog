@@ -42,7 +42,7 @@ tested around:
 Any standard 2-terminal electret capsule will work; these are just known-good
 picks. For stereo, two capsules go to the ADC's left and right inputs.
 
-### Plug-in power: jumper required
+### Plug-in power
 
 Electret capsules need a DC bias ("plug-in power") to run. The HiFiBerry DAC+
 ADC Pro can supply this, but **it is not enabled by default: the plug-in-power
