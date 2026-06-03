@@ -109,8 +109,8 @@ This option uses an **active** piezo (built-in oscillator, runs on DC, not a
 passive element). Driven straight from GPIO 23 an active piezo is loud, so a
 **series resistor to reduce the volume** is recommended:
 
-- Around **4.7 kohm** gives a quiet tone.
-- **10 kohm or more** makes it quieter still. Higher resistance means lower
+- Around **220 ohm** gives a quiet tone.
+- **330 ohm or more** makes it quieter still. Higher resistance means lower
   volume, so it can be tuned to taste.
 - Polarity matters: `+` toward GPIO 23, `-` toward the resistor/GND.
 
