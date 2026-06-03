@@ -233,6 +233,11 @@ spot (for example you know it will be very loud). Unless you have a reason to do
 otherwise, **position 3 (level 80)** is a good default, and a lower position
 only makes sense if you know the place will be unusually loud.
 
+
+## Case
+
+The **Teko A3** comfortably fits the Pi 3A+, the HiFiBerry board, and all components, while remaining compact and portable.
+
 ## Power
 
 The Pi is powered over its micro-USB input, so any good USB power bank works.
