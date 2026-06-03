@@ -23,6 +23,12 @@ Tested and working well:
 Both are compact, fast, and reliable for long recordings, and are formatted as
 **FAT32**.
 
+## Why the Pi 3A+
+
+The Pi 3A+ is cheap, power-efficient, and will remain in production until 2030. For a device that
+sits in a field doing one job, there is no reason to use anything more powerful. The 3B and 3B+
+should also work but are untested.
+
 ## Microphones
 
 DripRog is designed around **electret capsules** fed by the ADC's plug-in
