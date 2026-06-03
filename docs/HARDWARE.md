@@ -14,13 +14,13 @@ A recording needs ~2.1 GB free per segment (approximately 23 min 15 s at 192 kHz
 ### USB drive
 
 Recordings are written continuously, so drive quality matters. A slow or flaky
-drive can cause dropouts or stalls, so a high-quality drive is recommended.
+drive can cause dropouts or stalls, so a high-quality drive is recommended.The USB drive must be formatted as **FAT32** before use.
 Tested and working well:
 
 - **Samsung FIT Plus**
 - **SanDisk Ultra Fit**
 
-Both are compact, fast, and reliable for long recordings, and are formatted as
+Both are compact, fast, and reliable for long recordings
 **FAT32**.
 
 ### Why the Pi 3A+
