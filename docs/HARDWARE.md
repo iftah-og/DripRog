@@ -77,7 +77,7 @@ All inputs are active-low with the internal pull-up enabled in software; wire ea
 | Gain select (80) | 6 | To GND |
 | Gain default (104) | none | No gain pin to GND |
 
-The "gain" values are the ADC capture level passed to the `ADC` mixer control (0 to 104, i.e. 0 to 40 dB).
+The "gain" values are the ADC capture level passed to the `ADC` mixer control (0 to 104).
 
 ## Status indicator on GPIO 23
 
