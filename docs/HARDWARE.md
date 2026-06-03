@@ -42,11 +42,12 @@ picks. For stereo, two capsules go to the ADC's left and right inputs.
 
 ### Electrical noise and mic placement
 
-Like any active electronic device, the Pi and DAC board produce a small amount of electrical noise. 
-A faint periodic tone around 8 kHz is visible in a spectrogram, though it is too quiet to hear. T
-he likely cause is the kernel's periodic writeback flushing the recording to the USB drive,
-on the Pi 3, SD and USB share the same bus, so each flush radiates a brief burst of EMI. 
-Placing the capsules roughly **60 cm away from the board** eliminates it.
+Like any active electronic device, the Pi and DAC board produce a small amount of electrical noise.
+A faint periodic tone around 8 kHz is visible in a spectrogram, though it is too quiet to hear. It
+is not introduced in the signal path, it is radiated as EMI and picked up by the capsules directly.
+The likely cause is the kernel's periodic writeback flushing the recording to the USB drive. On the
+Pi 3, SD and USB share the same bus, so each flush produces a brief burst of interference. Placing
+the capsules roughly **60 cm away from the board** eliminates it.
 
 ### Plug-in power
 
