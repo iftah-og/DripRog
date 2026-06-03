@@ -9,7 +9,7 @@
 - One status indicator (see below)
 - 4-position rotary gain switch
 
-A recording needs ~2.1 GB free per segment, so the USB drive should be sized for your session length. 24 h at these settings is large, so a high-capacity drive is recommended.
+A recording needs ~2.1 GB free per segment (approximately 23 min 15 s at 192 kHz / 24-bit), so the USB drive should be sized for the session length. A 24-hour recording would require approximately 130 GB of storage, so a 256 GB USB drive is recommended to provide sufficient free space and headroom for long recordings.
 
 ### USB drive
 
