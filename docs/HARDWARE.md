@@ -21,7 +21,6 @@ Tested and working well:
 - **SanDisk Ultra Fit**
 
 Both are compact, fast, and reliable for long recordings
-**FAT32**.
 
 ### Why the Pi 3A+
 
