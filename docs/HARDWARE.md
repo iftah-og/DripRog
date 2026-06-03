@@ -2,7 +2,7 @@
 
 ## Core components
 
-- **Raspberry Pi 3A+** (any 64-bit Pi with the same GPIO header should work)
+- **Raspberry Pi 3A+** 
 - **HiFiBerry DAC+ ADC Pro** (records `hw:0,0`, 192 kHz / 24-bit stereo)
 - **USB drive**, formatted **FAT32**, mounted at `/mnt/usb` (recordings go to `/mnt/usb/recordings`)
 - Momentary push button
