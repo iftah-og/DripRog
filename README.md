@@ -14,7 +14,7 @@ with full screen reader and keyboard support. More [here](http://if-tah.com/devi
 
 There are two ways to use it:
 
-- **Flash the ready-made image**: easiest, no setup. [Download the image here(https://www.if-tah.com/devices/driprog].
+- **Flash the ready-made image**: easiest, no setup. [Download the image here](https://www.if-tah.com/devices/driprog).
 - **Use the scripts** (this repo): run on an existing Raspberry Pi OS install,
   or audit and modify what the device actually does.
 
