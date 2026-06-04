@@ -64,11 +64,18 @@ Insert a FAT32 USB drive and the recorder is ready (indicator solid).
 - **Long press** while recording: stop.
 - **Hold 5 s**: clean shutdown.
 
-Recordings are written to `/mnt/usb/recordings/droprig-NNN/`, one folder per
-power-on, split into ~23-minute WAV segments. The status indicator shows state
-(see [docs/HARDWARE.md](docs/HARDWARE.md) for the full pattern reference and
-wiring, including the LED, piezo, and vibration-motor options on the indicator
-pin).
+Recordings are written to /mnt/usb/recordings/droprig-NNN/, one folder per
+power-on. The NNN is a simple counter: on each start, DripRog finds the
+highest existing droprig-NNN folder on the drive and uses the next number, so
+folders stay in order across sessions. Within a folder, audio is split into
+~23-minute WAV segments. The status indicator shows state (see
+docs/HARDWARE.md for the full pattern reference and wiring,
+including the LED, piezo, and vibration-motor options on the indicator pin).
+
+Note: DripRog has no real-time clock, a deliberate choice to keep the hardware
+simple. As a result the device does not know the actual date or time. File
+timestamps are consistent within a session but do not reflect real calendar
+time, so use the folder counter and segment order to keep track of recordings.
 
 ## Accessibility
 
