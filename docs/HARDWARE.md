@@ -171,7 +171,7 @@ part's datasheet if it isn't a standard BC337 or 2N7000.
 ## Indicator patterns
 
 The indicator signals state by turning on and off in counts. With an LED these
-are blinks, with a buzzer they are tones, and with a motor they are buzzes; the
+are blinks, with a buzzer they are tones, and with a motor they are vibrations; the
 pattern is the same for all three. "Pulse" below means one on-then-off cycle.
 
 | Pattern | Meaning |
