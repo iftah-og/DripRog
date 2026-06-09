@@ -3,21 +3,21 @@
 # GPIO23 drives the status indicator: LED, active piezo buzzer, or
 # coin vibration motor (same pin, on/off). See HARDWARE.md for wiring.
 
-# --- Configuration ---
+# Configuration 
 DEVICE="hw:0,0"
 OUTPUT_DIR="/mnt/usb/recordings"
 BUTTON_PIN=17
 LED_PIN=23
 STOP_FLAG="/tmp/stop_recording"
 
-# --- libgpiod version detection (v1 and v2 differ; detect once) ---
+# libgpiod version detection (v1 and v2 differ; detect once)
 if gpioset --help 2>&1 | grep -q -- '--chip'; then
     GPIOD_V2=1
 else
     GPIOD_V2=0
 fi
 
-# --- Cleanup on exit ---
+# Cleanup on exit
 cleanup() {
     touch "$STOP_FLAG"
     killall arecord 2>/dev/null
@@ -26,7 +26,7 @@ cleanup() {
 }
 trap cleanup SIGINT SIGTERM EXIT
 
-# --- GPIO helpers (hide the v1/v2 differences) ---
+# GPIO helpers (hide the v1/v2 differences) 
 _gpio_read() {
     if [ "$GPIOD_V2" = "1" ]; then
         gpioget --chip gpiochip0 --bias=pull-up "$1" 2>/dev/null
@@ -52,7 +52,7 @@ _gpio_hold() {
     fi
 }
 
-# --- Inputs: button and gain switch ---
+# Inputs: button and gain switch 
 read_button() {
     _gpio_is_low "$(_gpio_read $BUTTON_PIN)"
 }
@@ -73,7 +73,7 @@ set_adc_level() {
     amixer -c 0 sset 'ADC' "$1" 2>/dev/null
 }
 
-# --- Status indicator and pulse patterns ---
+# Status indicator and pulse patterns
 led_on()  { _gpio_hold $LED_PIN 1; }
 led_off() { _gpio_hold $LED_PIN 0; }
 
@@ -107,7 +107,7 @@ flush_buffer() {
     arecord -D "$DEVICE" -f S32_LE -r 192000 -c 2 -d 0.5 /dev/null 2>/dev/null
 }
 
-# --- USB / disk checks ---
+# USB / disk checks
 check_usb_mounted() {
     if ! mount | grep " /mnt/usb " | grep -q "type vfat"; then
         return 1
@@ -127,7 +127,7 @@ check_disk_space() {
     return 0
 }
 
-# --- Recording folder (one droprig-NNN per power-on) ---
+# Recording folder 
 get_droprig_folder() {
     HIGHEST=$(ls -1d "$OUTPUT_DIR"/droprig-* 2>/dev/null | sed 's/.*droprig-//' | sort -n | tail -1)
     if [ -z "$HIGHEST" ]; then
@@ -138,7 +138,7 @@ get_droprig_folder() {
     printf "%s/droprig-%03d" "$OUTPUT_DIR" "$NEXT"
 }
 
-# --- State and startup ---
+# State and startup 
 RECORDING=false
 RECORD_PID=0
 LAST_GAIN_LEVEL=""
@@ -154,7 +154,7 @@ sleep 0.5
 led_off
 sleep 0.5
 
-# --- Wait for USB (button still works to shut down) ---
+# Wait for USB (button still works to shut down)
 while ! check_usb_mounted; do
     BUTTON_STATE=$(read_button)
     if [ "$BUTTON_STATE" -eq 1 ]; then
@@ -178,7 +178,7 @@ done
 
 led_on
 
-# --- Main loop ---
+# Main loop
 while true; do
     if [ "$RECORDING" = false ]; then
         CURRENT_GAIN=$(read_gain_switch)
