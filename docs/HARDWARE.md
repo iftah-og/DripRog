@@ -1,5 +1,6 @@
 # Hardware
 
+DripRog is intentionally built from off-the-shelf, readily available components rather than custom or hand-built electronics. The goal is to keep the system reproducible, repairable, and easy to assemble, and accessible to anyone without prior electronics experience.
 ## Core components
 
 - **Raspberry Pi 3A+** 
