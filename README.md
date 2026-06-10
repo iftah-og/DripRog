@@ -84,7 +84,7 @@ is built to be operable without relying on any single sense.
 
 - **One control.** Everything is done with a single button: short press, long
   press, and a 5-second hold. There is no screen, menu, or app to navigate.
-- **Choose how it reports state.** The status indicator on GPIO 23 can be a
+- **Status feedback options.** The status indicator on GPIO 23 can be a
   **visual LED**, an **audible active piezo buzzer**, or a **tactile coin
   vibration motor**. None is the default or primary option; they are equal
   choices. All three use the same patterns (startup, ready, recording, stopped,
