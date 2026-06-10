@@ -1,5 +1,5 @@
 #!/bin/bash
-# DripRog
+# DripRog recorder
 # GPIO23 drives the status indicator: LED, active piezo buzzer, or
 # coin vibration motor (same pin, on/off). See HARDWARE.md for wiring.
 
