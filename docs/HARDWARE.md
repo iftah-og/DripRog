@@ -254,5 +254,5 @@ time on a Pi 3A+ with this setup, and capacity scales with the session length
 you need. Because the root filesystem is read-only, the battery simply dying
 mid-session is safe: only the segment that was being written is lost.
 
-DripRog is provided as-is. Build and use at your own risk.
+DripRog is provided as-is. Please build and use it responsibly.
 
