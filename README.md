@@ -3,7 +3,7 @@
 DripRog is a minimal, accessible, unattended field audio recorder for the
 Raspberry Pi with a HiFiBerry DAC+ ADC Pro. One button, one status indicator,
 records 192 kHz / 24-bit stereo WAV to a USB drive. Built to be dropped
-somewhere, and picked up a day or two later.
+somewhere, and picked up a day or two later. It can be built using off-the-shelf parts for a very moderate cost and requires minimal soldering. 
 
 Accessibility is core to the design, not an afterthought. See
 [Accessibility](#accessibility) below.
