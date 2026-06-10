@@ -92,9 +92,8 @@ is built to be operable without relying on any single sense.
   sound, or touch. Wiring for each is in
   [docs/HARDWARE.md](docs/HARDWARE.md#status-indicator-on-gpio-23).
 - **Consistent, learnable patterns.** State is conveyed by a small set of
-  distinct rhythms (for example solid = ready, fast pulses = shutting down)
-  rather than by colour or pitch alone, so they read the same whether felt,
-  heard, or seen.
+  distinct rhythms (for example solid = ready, fast pulses = shutting down),
+  so they read the same whether felt, heard, or seen.
 - **A control you can set by feel.** Gain is a 4-position detented rotary
   switch, not a continuous dial. The positions click, so you can find and set a
   level by touch and count, without needing to see it or read a value.
