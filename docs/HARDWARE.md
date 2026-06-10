@@ -220,24 +220,22 @@ level when you press record, even after the unit has been moved around or
 carried in a bag. A turn dial would be much easier to knock to a different
 setting on the way.
 
-The cost is fewer choices: four fixed levels instead of a smooth range. For this
-use that helps rather than hurts, because the point is a clear, repeatable
+The trade-off is fewer choices: four fixed levels instead of a smooth range. For this
+use case it helps rather than hurts, because the point is a clear, repeatable
 setting, not fine adjustment. If you want a smooth dial or different gain
 behaviour, it can be changed in the recorder script (the gain reading is in one
 small function).
 
 ### A note on setting gain for unattended recording
 
-Setting a gain level before an overnight or multi-day recording is always a bit
-of a guess. You don't know ahead of time how loud the place will be, and you
+Setting a gain level before an overnight or multi-day recording tricky. 
+You don't know ahead of time how loud the place will be, and you
 won't be there to change it, so there isn't really a "right" gain to pick for a
 recording you leave running.
 
 The switch is here anyway, because sometimes you do know something about the
 spot (for example you know it will be very loud). Unless you have a reason to do
-otherwise, **position 3 (level 80)** is a good default, and a lower position
-only makes sense if you know the place will be unusually loud.
-
+otherwise, **position 3 (level 80)** is a good default.
 
 ## Case
 
