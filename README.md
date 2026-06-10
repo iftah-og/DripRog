@@ -133,6 +133,8 @@ from any good battery pack; **Anker** packs work well, and roughly a **10 Ah**
 battery gives about **24 hours** of recording on a Pi 3A+. See
 [docs/HARDWARE.md](docs/HARDWARE.md#power) for more.
 
+DripRog is provided as-is. Build and use at your own risk.
+
 ## License
 
 MIT. See [LICENSE](LICENSE).
