@@ -61,7 +61,7 @@ Insert a FAT32 USB drive and the recorder is ready (indicator solid).
 ## How it works
 
 - **Short press** the button: start recording.
-- **Long press** while recording: stop. The indicator goes solid while confirming, blinks 7 times, then goes solid again — only remove the USB once it is solid at the end.
+- **Long press** while recording: stop. The indicator goes solid while confirming, blinks 7 times, then goes solid again, only remove the USB once it is solid at the end.
 - **Hold 5 s**: clean shutdown.
 - **Status indicator**: see [docs/HARDWARE.md](docs/HARDWARE.md) for the full pattern reference. 
 
