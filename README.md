@@ -58,6 +58,8 @@ sudo systemctl enable --now driprog.service
 
 Insert a FAT32 USB drive and the recorder is ready (indicator solid).
 
+## How it works
+
 - **Short press** the button: start recording.
 - **Long press** while recording: stop.
 - **Hold 5 s**: clean shutdown.
