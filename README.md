@@ -58,11 +58,10 @@ sudo systemctl enable --now driprog.service
 
 Insert a FAT32 USB drive and the recorder is ready (indicator solid).
 
-## How it works
-
 - **Short press** the button: start recording.
 - **Long press** while recording: stop.
 - **Hold 5 s**: clean shutdown.
+- **Status indicator**: see [docs/HARDWARE.md](docs/HARDWARE.md) for the full pattern reference. 
 
 Recordings are written to /mnt/usb/recordings/droprig-NNN/, one folder per
 power-on. The NNN is a simple counter: on each start, DripRog finds the
