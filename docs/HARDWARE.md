@@ -181,7 +181,7 @@ pattern is the same for all three. "Pulse" below means one on-then-off cycle.
 | Solid on | Ready (USB mounted, space available) |
 | 2 pulses, pause, repeat | Waiting for USB / not enough space |
 | 4 pulses then off | Recording started (off = recording) |
-| 7 fast pulses then **solid on** | Recording stopped — wait for solid before removing USB (hold 1 s while recording to trigger) |
+| Solid → 7 fast pulses → **solid on** | Recording stopped — wait for final solid before removing USB (hold 1 s while recording to trigger) |
 | 9 fast pulses | Shutting down |
 
 
