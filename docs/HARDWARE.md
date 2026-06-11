@@ -174,14 +174,14 @@ The indicator signals state by turning on and off in counts. With an LED these
 are blinks, with a buzzer they are tones, and with a motor they are vibrations; the
 pattern is the same for all three. "Pulse" below means one on-then-off cycle.
 
+
 | Pattern | Meaning |
 |---|---|
 | One pulse at startup | Power-on self-test |
 | Solid on | Ready (USB mounted, space available) |
 | 2 pulses, pause, repeat | Waiting for USB / not enough space |
 | 4 pulses then off | Recording started (off = recording) |
-| On after a 1 s hold while recording | Stop is being confirmed |
-| 7 fast pulses then **solid on** | Recording stopped — wait for solid before removing USB |
+| 7 fast pulses then **solid on** | Recording stopped — wait for solid before removing USB (hold 1 s while recording to trigger) |
 | 9 fast pulses | Shutting down |
 
 
