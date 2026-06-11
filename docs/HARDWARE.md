@@ -229,7 +229,7 @@ small function).
 
 ### A note on setting gain for unattended recording
 
-Setting a gain level before an overnight or multi-day recording tricky. 
+Setting a gain level before an overnight or multi-day recording is tricky. 
 You don't know ahead of time how loud the place will be, and you
 won't be there to change it, so there isn't really a "right" gain to pick for a
 recording you leave running.
