@@ -170,7 +170,6 @@ order can vary between transistor types, so it's worth checking your specific
 part's datasheet if it isn't a standard BC337 or 2N7000.
 
 ## Indicator patterns
-
 The indicator signals state by turning on and off in counts. With an LED these
 are blinks, with a buzzer they are tones, and with a motor they are vibrations; the
 pattern is the same for all three. "Pulse" below means one on-then-off cycle.
@@ -182,8 +181,9 @@ pattern is the same for all three. "Pulse" below means one on-then-off cycle.
 | 2 pulses, pause, repeat | Waiting for USB / not enough space |
 | 4 pulses then off | Recording started (off = recording) |
 | On after a 1 s hold while recording | Stop is being confirmed |
-| 7 fast pulses then solid | Recording stopped, safe to remove the USB drive |
+| 7 fast pulses then **solid on** | Recording stopped — wait for solid before removing USB |
 | 9 fast pulses | Shutting down |
+
 
 ## Controls
 
